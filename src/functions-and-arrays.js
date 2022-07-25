@@ -22,7 +22,7 @@ function findLongestWord()
     let max_str = words[0].length;
      let ans = words[0];
     for (let i = 1; i < words.length; i++) {
-        var maxi = words[i].length;
+        let maxi = words[i].length;
         if (maxi > max_str) {
             ans = words[i];
             max_str = maxi;
@@ -64,14 +64,14 @@ let numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers() {
   
-    var i = 0, summ = 0, ArrayLen = numbersAvg.length;
+    let i = 0, summ = 0, ArrayLen = numbersAvg.length;
     while (i < ArrayLen) {
         summ = summ + numbersAvg[i++];
 }
     return summ / ArrayLen;
 }
 
-var a = averageNumbers(numbersAvg);
+let a = averageNumbers(numbersAvg);
 console.log(a)
 
 
@@ -83,33 +83,40 @@ function averageWordLength() { }
 
 
 // Iteration #5: Unique arrays
-const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
+
+const words = ['crab','poison','contagious','simple','bring', 'sharp','playground','poison','communion','simple','bring'
 ];
-
-function uniquifyArray() {}
-
+ 
+    function uniquifyArray() {
+        return words.filter((item,
+            index) => words.indexOf(item) === index);
+    }
+ 
+console.log(uniquifyArray(words));
 
 
 // Iteration #6: Find elements
+
+
+function doesWordExist(wordsFind, trouble) {
+
+}
+
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+const word = 'MACHINE';
+
+const containsString = wordsFind.some(element => {
+  return element.toLowerCase() === word.toLowerCase();
+});
+
+console.log(containsString);
 
 
 
 // Iteration #7: Count repetition
-const wordsCount = [
+
+const words = [
   'machine',
   'matter',
   'subset',
@@ -123,7 +130,30 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(array){
+const count = {}
+const result = []
+
+array.forEach(item => {
+    if (count[item]) {
+       count[item] +=1
+       return
+    }
+    count[item] = 1
+})
+
+for (let prop in count){
+    if (count[prop] >=2){
+        result.push(prop)
+    }
+}
+
+console.log(count)
+return result;
+
+}
+
+howManyTimes(words)
 
 
 // The following is required to make unit tests work.
